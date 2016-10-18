@@ -46,7 +46,7 @@ class CustomCallback(keras.callbacks.Callback):
             sys.stdout.flush()
 
         #Save model if log loss is less than prior
-        if (self.autosave) and (logs.get('loss') < self.losses[-1]):
+        if (self.autosave) and (logs.get('loss') < min(self.losses)):
             print ''
             keras_io.save_model(self.model, 'model_autosave')
 
