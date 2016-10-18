@@ -11,7 +11,6 @@ import keras_io
 
 # ...Model Code...
 
-model.fit(x_train, y_train, nb_epoch=epochs)
 keras_io.save_model(model, 'filename')
 
 # ...Later...
@@ -27,6 +26,6 @@ from keras_callback import CustomCallback
 
 # ...Model Code...
 
-callback = CustomCallback(epochs, 100)
+callback = CustomCallback(total_epochs=epochs, epoch_multiple=10, autosave=True)
 model.fit(x_train, y_train, nb_epoch=epochs, verbose=0, callbacks=[callback])
 ```
