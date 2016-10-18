@@ -7,8 +7,8 @@ def save_model(model, filename):
 		json_file.write(model_json)
 
 	# serialize weights to HDF5
-	model.save_weights(filename + '.h5')
-	print('### Model Saved as', filename + '.h5/.json ###')
+	model.save_weights(filename + '.h5', overwrite=True)
+	print '### Model Saved as', filename + '.h5/.json ###'
 
 def load_model(filename):
 	# load json and create model
@@ -19,5 +19,5 @@ def load_model(filename):
 
 	# load weights into new model
 	loaded_model.load_weights(filename + '.h5')
-	print ('### Model Loaded from disk ###')
+	print '### Model Loaded from disk ###'
 	return loaded_model
